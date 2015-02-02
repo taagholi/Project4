@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dataAccess.model">
+    <class name="LoanFile" table="LoanFile">
+        <id name="id" type="long" >
+            <column name="ID" sql-type="INT"/>
+            <generator class="increment"/>
+        </id>
+        <property name="durationContract" type="long">
+            <column name="DurationContract" sql-type="INT"/>
+        </property>
+        <property name="amountContract" type="long">
+            <column name="AmountContract" sql-type="INT"/>
+        </property>
+        <many-to-one name="loanType" class="dataAccess.model.LoanType" column="FK_loanType" cascade="none"></many-to-one>
+    </class>
+</hibernate-mapping>

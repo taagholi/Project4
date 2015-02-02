@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dataAccess.model">
+    <class name="Customer" table="Customer">
+        <id name="id" type="long" >
+            <column name="ID" sql-type="INT"/>
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="VARCHAR(20)"/>
+        </property>
+        <property name="family" type="java.lang.String">
+            <column name="FAMILY" sql-type="VARCHAR(20)"/>
+        </property>
+        <property name="fatherName" type="java.lang.String">
+            <column name="FatherName" sql-type="VARCHAR(20)"/>
+        </property>
+        <property name="codeMelli" type="long">
+            <column name="CodeMelli" sql-type="INT"/>
+        </property>
+        <list name="loanFiles" cascade="all">
+            <key column="FK_Customer"/>
+            <index column="IDX"/>
+            <one-to-many class="dataAccess.model.LoanFile"/>
+        </list>
+    </class>
+</hibernate-mapping>

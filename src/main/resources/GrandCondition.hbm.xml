@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dataAccess.model">
+    <class name="GrandCondition" table="GrandCondition">
+        <id name="id" type="long" >
+            <column name="ID" sql-type="INT"/>
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" sql-type="VARCHAR(20)"/>
+        </property>
+        <property name="minDurationContract" type="long">
+            <column name="MinDuration" sql-type="INT"/>
+        </property>
+        <property name="maxDurationContract" type="long">
+            <column name="MaxDuration" sql-type="INT"/>
+        </property>
+        <property name="minAmountContract" type="long">
+            <column name="MinAmount" sql-type="INT"/>
+        </property>
+        <property name="maxAmountContract" type="long">
+            <column name="MaxAmount" sql-type="INT"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dataAccess.model">
+    <class name="LoanType" table="LoanType">
+        <id name="id" type="long" >
+            <column name="ID" sql-type="INT"/>
+            <generator class="increment"/>
+        </id>
+        <property name="loanName" type="java.lang.String">
+            <column name="LoanName" sql-type="VARCHAR(20)"/>
+        </property>
+        <property name="profit" type="long">
+            <column name="Profit" sql-type="INT"/>
+        </property>
+        <list name="grandConditions" cascade="all">
+            <key column="FK_LoanType"/>
+            <index column="IDX"/>
+            <one-to-many class="dataAccess.model.GrandCondition"/>
+        </list>
+    </class>
+</hibernate-mapping>

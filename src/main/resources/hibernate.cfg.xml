@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/project4</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123456a</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <mapping resource="Customer.hbm.xml"/>
+        <mapping resource="GrandCondition.hbm.xml"/>
+        <mapping resource="LoanFile.hbm.xml"/>
+        <mapping resource="LoanType.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
