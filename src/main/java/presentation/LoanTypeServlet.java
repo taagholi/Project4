@@ -22,6 +22,7 @@ public class LoanTypeServlet extends HttpServlet {
         }
 
         else if(request.getServletPath().equalsIgnoreCase("/InsertFirstGrandCondition")){
+            request.setCharacterEncoding("UTF-8");
             request.setAttribute("isFirstCondition", "true");
             LoanType loanType = new LoanType();
             loanType.setLoanName(request.getParameter("NameOfLoan"));
@@ -32,6 +33,7 @@ public class LoanTypeServlet extends HttpServlet {
         }
 
         else if(request.getServletPath().equalsIgnoreCase("/AddFirstCondition")){
+            request.setCharacterEncoding("UTF-8");
             request.setAttribute("isFirstCondition", "false");
             ArrayList<GrandCondition> grandConditions = new ArrayList<GrandCondition>();
             GrandCondition grandCondition = new GrandCondition();
@@ -48,6 +50,7 @@ public class LoanTypeServlet extends HttpServlet {
 
 
         else if(request.getServletPath().equalsIgnoreCase("/AddAnotherGrandCondition")){
+            request.setCharacterEncoding("UTF-8");
             request.setAttribute("isFirstCondition", "false");
             GrandCondition grandCondition = new GrandCondition();
             grandCondition.setName(request.getParameter("GrandConditionName"));
