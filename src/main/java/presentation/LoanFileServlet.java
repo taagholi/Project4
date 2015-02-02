@@ -45,6 +45,7 @@ public class LoanFileServlet extends HttpServlet {
         }
 
         else if(request.getServletPath().equalsIgnoreCase("/DecisionAllocateLoan")){
+            request.setCharacterEncoding("UTF-8");
             long customerID = ((Customer) request.getSession().getAttribute("customer")).getId();
             long trackingNumber = loanFileLogic.decisionAllocate(request.getParameter("loanchosen"), Long.parseLong(request.getParameter("DurationOfUser")),
                     Long.parseLong(request.getParameter("AmountOfUser")) , customerID);
