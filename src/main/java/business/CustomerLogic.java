@@ -8,13 +8,11 @@ public class CustomerLogic {
 
 
     public static Customer loadCustomerByID(long customerID){
-        List<Customer> customers = CustomerCRUD.read(customerID);
-        if(customers.size() == 0){
+        Customer customer = CustomerCRUD.read(customerID);
+        if(customer == null){
             return null;
-        }else if(customers.size() == 1){
-            return customers.get(0);
-        }else{
-            return null;
+        }else {
+            return customer;
         }
     }
 }

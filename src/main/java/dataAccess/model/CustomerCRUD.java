@@ -10,17 +10,17 @@ import java.util.List;
 
 public class CustomerCRUD {
 
-    public static List<Customer> read(long id) {
+    public static Customer read(long id) {
         Session sessionHibernate = HibernateUtil.getSession();
-        List<Customer> customers;
+        Customer customer;
         try {
             Query query = sessionHibernate.createQuery("from Customer c where c.id= :id");
             query.setParameter("id", id);
-            customers = query.list();
+            customer = (Customer) query.uniqueResult();
         } finally {
             sessionHibernate.close();
         }
-        return customers;
+        return customer;
     }
 
     public static void updateCustomer(long idCustomer, LoanFile loanFile){
