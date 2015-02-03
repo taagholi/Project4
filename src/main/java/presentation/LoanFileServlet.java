@@ -20,7 +20,7 @@ public class LoanFileServlet extends HttpServlet {
         if(request.getServletPath().equalsIgnoreCase("/StartNewLoanFile")){
             request.setAttribute("Step", "StepGetCustomerNumber");
             request.setAttribute("Msg","");
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFiles/Step1_Customer_Number_ChooseLoan.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFile/Step1_Customer_Number_ChooseLoan.jsp");
             requestDispatcher.forward(request, response);
         }
 
@@ -31,13 +31,13 @@ public class LoanFileServlet extends HttpServlet {
             if(customer == null){
                 request.setAttribute("Step", "StepGetCustomerNumber");
                 request.setAttribute("Msg", "کاربر محترم شماره مشتری وارد شده اشتباه میباشد.");
-                RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFiles/Step1_Customer_Number_ChooseLoan.jsp");
+                RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFile/Step1_Customer_Number_ChooseLoan.jsp");
                 requestDispatcher.forward(request, response);
             }else{
                 request.setAttribute("Step", "StepChooseLoanType");
                 request.getSession().setAttribute("customer", customer);
                 request.setAttribute("NamesOfLoanType", LoanTypeLogic.loadNameOfLoanType());
-                RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFiles/Step1_Customer_Number_ChooseLoan.jsp");
+                RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFile/Step1_Customer_Number_ChooseLoan.jsp");
                 requestDispatcher.forward(request, response);
             }
         }
@@ -48,7 +48,7 @@ public class LoanFileServlet extends HttpServlet {
             long trackingNumber = LoanFileLogic.decisionAllocate(request.getParameter("loanchosen"), Long.parseLong(request.getParameter("DurationOfUser")),
                     Long.parseLong(request.getParameter("AmountOfUser")) , customerID);
             request.getSession().setAttribute("trackingNumber", trackingNumber);
-            response.sendRedirect("LoanFiles/StepFinal_Show_Result.jsp");
+            response.sendRedirect("LoanFile/StepFinal_Show_Result.jsp");
         }
     }
 }
