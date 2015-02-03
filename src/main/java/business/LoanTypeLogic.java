@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 public class LoanTypeLogic {
 
-    private LoanTypeCRUD loanTypeCRUD = new LoanTypeCRUD();
 
     public boolean registerLoanType(LoanType loanType){
-        loanTypeCRUD.saveModel(loanType);
+        LoanTypeCRUD.saveModel(loanType);
         Log.logger.info("New Loan: "+ loanType.getLoanName() + " " + loanType.getProfit() + " "+
         "with ID: " + loanType.getId() + " Saved.");
         return true;
@@ -19,7 +18,7 @@ public class LoanTypeLogic {
 
     public ArrayList<String> loadNameOfLoanType(){
         ArrayList<String> names = new ArrayList<String>();
-        for (LoanType loanType : loanTypeCRUD.getAllModels()){
+        for (LoanType loanType : LoanTypeCRUD.getAllModels()){
             names.add(loanType.getLoanName());
         }
         return names;

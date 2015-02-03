@@ -6,10 +6,9 @@ import java.util.List;
 
 public class CustomerLogic {
 
-    private CustomerCRUD customerCRUD = new CustomerCRUD();
 
     public Customer loadCustomerByID(long customerID){
-        List<Customer> customers = customerCRUD.read(customerID);
+        List<Customer> customers = CustomerCRUD.read(customerID);
         if(customers.size() == 0){
             return null;
         }else if(customers.size() == 1){
