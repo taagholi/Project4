@@ -16,7 +16,7 @@ public class LoanTypeServlet extends HttpServlet {
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getServletPath().equalsIgnoreCase("/newLoanType")){
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step1_NameOfLoanType.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step1_Name_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }
 
@@ -27,7 +27,7 @@ public class LoanTypeServlet extends HttpServlet {
             loanType.setLoanName(request.getParameter("NameOfLoan"));
             loanType.setProfit(Long.parseLong(request.getParameter("ProfitOfLoan")));
             request.getSession().setAttribute("loantype",loanType);
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_AddConditionToLoanType.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_Add_Condition_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }
 
@@ -43,7 +43,7 @@ public class LoanTypeServlet extends HttpServlet {
             grandCondition.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
             grandConditions.add(grandCondition);
             ((LoanType) request.getSession().getAttribute("loantype")).setGrandConditions(grandConditions);
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_AddConditionToLoanType.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_Add_Condition_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }
 
@@ -58,7 +58,7 @@ public class LoanTypeServlet extends HttpServlet {
             grandCondition.setMinDurationContract(Long.parseLong(request.getParameter("minDuration")));
             grandCondition.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
             ((LoanType) request.getSession().getAttribute("loantype")).getGrandConditions().add(grandCondition);
-            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_AddConditionToLoanType.jsp");
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_Add_Condition_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }
 
@@ -66,7 +66,7 @@ public class LoanTypeServlet extends HttpServlet {
             LoanTypeLogic.registerLoanType(((LoanType) request.getSession().getAttribute("loantype")));
             request.getSession().removeAttribute("loantype");
             request.getSession().setAttribute("resultOfSaveModel", "success");
-            response.sendRedirect("/LoanType/Step3_ResultOfCreationLoanType.jsp");
+            response.sendRedirect("/LoanType/Step3_Result_Creation_LoanType.jsp");
 
         }
 
