@@ -1,7 +1,7 @@
 package presentation;
 
 import business.LoanTypeLogic;
-import dataAccess.model.GrandCondition;
+import dataAccess.model.GrantConditon;
 import dataAccess.model.LoanType;
 
 import javax.servlet.RequestDispatcher;
@@ -34,15 +34,15 @@ public class LoanTypeServlet extends HttpServlet {
         else if(request.getServletPath().equalsIgnoreCase("/AddFirstCondition")){
             request.setCharacterEncoding("UTF-8");
             request.setAttribute("isFirstCondition", "false");
-            ArrayList<GrandCondition> grandConditions = new ArrayList<GrandCondition>();
-            GrandCondition grandCondition = new GrandCondition();
-            grandCondition.setName(request.getParameter("GrandConditionName"));
-            grandCondition.setMinAmountContract(Long.parseLong(request.getParameter("minAmount")));
-            grandCondition.setMaxAmountContract(Long.parseLong(request.getParameter("maxAmount")));
-            grandCondition.setMinDurationContract(Long.parseLong(request.getParameter("minDuration")));
-            grandCondition.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
-            grandConditions.add(grandCondition);
-            ((LoanType) request.getSession().getAttribute("loantype")).setGrandConditions(grandConditions);
+            ArrayList<GrantConditon> grantConditons = new ArrayList<GrantConditon>();
+            GrantConditon grantConditon = new GrantConditon();
+            grantConditon.setName(request.getParameter("GrandConditionName"));
+            grantConditon.setMinAmountContract(Long.parseLong(request.getParameter("minAmount")));
+            grantConditon.setMaxAmountContract(Long.parseLong(request.getParameter("maxAmount")));
+            grantConditon.setMinDurationContract(Long.parseLong(request.getParameter("minDuration")));
+            grantConditon.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
+            grantConditons.add(grantConditon);
+            ((LoanType) request.getSession().getAttribute("loantype")).setGrantConditons(grantConditons);
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_Add_Condition_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }
@@ -51,13 +51,13 @@ public class LoanTypeServlet extends HttpServlet {
         else if(request.getServletPath().equalsIgnoreCase("/AddAnotherGrandCondition")){
             request.setCharacterEncoding("UTF-8");
             request.setAttribute("isFirstCondition", "false");
-            GrandCondition grandCondition = new GrandCondition();
-            grandCondition.setName(request.getParameter("GrandConditionName"));
-            grandCondition.setMinAmountContract(Long.parseLong(request.getParameter("minAmount")));
-            grandCondition.setMaxAmountContract(Long.parseLong(request.getParameter("maxAmount")));
-            grandCondition.setMinDurationContract(Long.parseLong(request.getParameter("minDuration")));
-            grandCondition.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
-            ((LoanType) request.getSession().getAttribute("loantype")).getGrandConditions().add(grandCondition);
+            GrantConditon grantConditon = new GrantConditon();
+            grantConditon.setName(request.getParameter("GrandConditionName"));
+            grantConditon.setMinAmountContract(Long.parseLong(request.getParameter("minAmount")));
+            grantConditon.setMaxAmountContract(Long.parseLong(request.getParameter("maxAmount")));
+            grantConditon.setMinDurationContract(Long.parseLong(request.getParameter("minDuration")));
+            grantConditon.setMaxDurationContract(Long.parseLong(request.getParameter("maxDuration")));
+            ((LoanType) request.getSession().getAttribute("loantype")).getGrantConditons().add(grantConditon);
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanType/Step2_Add_Condition_LoanType.jsp");
             requestDispatcher.forward(request, response);
         }

@@ -1,6 +1,6 @@
     <%@ page import="dataAccess.model.LoanType" %>
     <%@ page import="java.util.ArrayList" %>
-    <%@ page import="dataAccess.model.GrandCondition" %>
+    <%@ page import="dataAccess.model.GrantConditon" %>
     <%--
       Created by IntelliJ IDEA.
       User: Dotin school 6
@@ -40,20 +40,20 @@
             </thead>
             <tbody>
             <%
-                ArrayList<GrandCondition> grandConditions =
-                        (ArrayList<GrandCondition>) ((LoanType) request.getSession().getAttribute("loantype")).getGrandConditions();
-                for (GrandCondition grandCondition : grandConditions) {
+                ArrayList<GrantConditon> grantConditons =
+                        (ArrayList<GrantConditon>) ((LoanType) request.getSession().getAttribute("loantype")).getGrantConditons();
+                for (GrantConditon grantConditon : grantConditons) {
             %>
             <tr>
-                <td style="font-family: 'yekan', Arial !important;"><%=grandCondition.getName()%>
+                <td style="font-family: 'yekan', Arial !important;"><%=grantConditon.getName()%>
                 </td>
-                <td><%=grandCondition.getMaxAmountContract()%>
+                <td><%=grantConditon.getMaxAmountContract()%>
                 </td>
-                <td><%=grandCondition.getMinAmountContract()%>
+                <td><%=grantConditon.getMinAmountContract()%>
                 </td>
-                <td><%=grandCondition.getMaxDurationContract()%>
+                <td><%=grantConditon.getMaxDurationContract()%>
                 </td>
-                <td><%=grandCondition.getMinDurationContract()%>
+                <td><%=grantConditon.getMinDurationContract()%>
                 </td>
             </tr>
             <%

@@ -1,7 +1,7 @@
 package dataAccess.model;
 
 
-public class GrandCondition {
+public class GrantConditon {
     private long id;
     private String name;
     private long minDurationContract;

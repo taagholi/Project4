@@ -8,7 +8,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/project4?characterEncoding=UTF-8</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">123456a</property>
-        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <mapping resource="Customer.hbm.xml"/>
         <mapping resource="GrandCondition.hbm.xml"/>

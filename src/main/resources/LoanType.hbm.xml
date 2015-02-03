@@ -14,10 +14,10 @@
         <property name="profit" type="long">
             <column name="Profit" sql-type="INT"/>
         </property>
-        <list name="grandConditions" cascade="all">
+        <list name="grantConditons" cascade="all">
             <key column="FK_LoanType"/>
             <index column="IDX"/>
-            <one-to-many class="dataAccess.model.GrandCondition"/>
+            <one-to-many class="GrantConditon"/>
         </list>
     </class>
 </hibernate-mapping>

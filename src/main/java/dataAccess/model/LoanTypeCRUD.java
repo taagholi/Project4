@@ -40,7 +40,7 @@ public class LoanTypeCRUD {
             Query query = sessionHibernate.createQuery("from LoanType l where l.loanName = :name");
             query.setParameter("name", nameOfLoan);
             loanType = (LoanType) query.list().get(0);
-            Hibernate.initialize(loanType.getGrandConditions());
+            Hibernate.initialize(loanType.getGrantConditons());
             sessionHibernate.close();
         return loanType;
 

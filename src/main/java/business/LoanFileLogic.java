@@ -12,10 +12,10 @@ public class LoanFileLogic {
     public static long decisionAllocate(String nameOfLoan, long duration, long amount, long customerID) {
         long trackingNumber = -1;
         LoanType loanType = LoanTypeCRUD.getModel(nameOfLoan);
-        List<GrandCondition> grandConditions = loanType.getGrandConditions();
-        for (GrandCondition grandCondition : grandConditions) {
-            if (grandCondition.getMinDurationContract() <= duration & grandCondition.getMaxDurationContract() >= duration) {
-                if (grandCondition.getMinAmountContract() <= amount & grandCondition.getMaxAmountContract() >= amount) {
+        List<GrantConditon> grantConditons = loanType.getGrantConditons();
+        for (GrantConditon grantConditon : grantConditons) {
+            if (grantConditon.getMinDurationContract() <= duration & grantConditon.getMaxDurationContract() >= duration) {
+                if (grantConditon.getMinAmountContract() <= amount & grantConditon.getMaxAmountContract() >= amount) {
                     LoanFile loanFile = new LoanFile();
                     loanFile.setAmountContract(amount);
                     loanFile.setDurationContract(duration);

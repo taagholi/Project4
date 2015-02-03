@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="dataAccess.model">
-    <class name="GrandCondition" table="GrandCondition">
+    <class name="dataAccess.model.GrantConditon" table="GrantCondition">
         <id name="id" type="long" >
             <column name="ID" sql-type="INT"/>
             <generator class="increment"/>

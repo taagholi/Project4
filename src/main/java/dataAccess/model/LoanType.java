@@ -7,14 +7,14 @@ public class LoanType {
     private long id;
     private String loanName;
     private long profit;
-    private List<GrandCondition> grandConditions;
+    private List<GrantConditon> grantConditons;
 
-    public List<GrandCondition> getGrandConditions() {
-        return grandConditions;
+    public List<GrantConditon> getGrantConditons() {
+        return grantConditons;
     }
 
-    public void setGrandConditions(List<GrandCondition> grandConditions) {
-        this.grandConditions = grandConditions;
+    public void setGrantConditons(List<GrantConditon> grantConditons) {
+        this.grantConditons = grantConditons;
     }
 
     public long getId() {
