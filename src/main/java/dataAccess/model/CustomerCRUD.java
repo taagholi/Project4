@@ -23,21 +23,5 @@ public class CustomerCRUD {
         return customer;
     }
 
-    public static void updateCustomer(long idCustomer, LoanFile loanFile){
-        Session sessionHibernate = HibernateUtil.getSession();
-        try {
-            Transaction transaction = sessionHibernate.beginTransaction();
-            Query query = sessionHibernate.createQuery("from Customer c where c.id= :id");
-            query.setParameter("id", idCustomer);
-            List<Customer> customers = query.list();
-            Customer customer = customers.get(0);
-            customer.getLoanFiles().add(loanFile);
-            sessionHibernate.saveOrUpdate(customer);
-            transaction.commit();
-        } finally {
-            sessionHibernate.close();
-        }
 
-
-    }
 }

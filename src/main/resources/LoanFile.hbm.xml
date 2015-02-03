@@ -15,5 +15,6 @@
             <column name="AmountContract" sql-type="INT"/>
         </property>
         <many-to-one name="loanType" class="dataAccess.model.LoanType" column="FK_loanType" cascade="none"></many-to-one>
+        <many-to-one name="customer" class="dataAccess.model.Customer" column="FK_Customer" cascade="none"></many-to-one>
     </class>
 </hibernate-mapping>

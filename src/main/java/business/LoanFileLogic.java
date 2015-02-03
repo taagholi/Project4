@@ -20,8 +20,9 @@ public class LoanFileLogic {
                     loanFile.setAmountContract(amount);
                     loanFile.setDurationContract(duration);
                     loanFile.setLoanType(loanType);
+                    loanFile.setCustomer(CustomerCRUD.read(customerID));
                     trackingNumber = LoanFileCRUD.saveModel(loanFile);
-                    CustomerCRUD.updateCustomer(customerID, loanFile);
+
                     Log.logger.info("The Loan " + loanType.getLoanName() + " Allocated to Custmoer with id: " + customerID
                     +", And the Loan File ID is:" + loanFile.getId());
                     break;

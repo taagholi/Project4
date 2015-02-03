@@ -20,10 +20,5 @@
         <property name="codeMelli" type="long">
             <column name="CodeMelli" sql-type="INT"/>
         </property>
-        <list name="loanFiles" cascade="all">
-            <key column="FK_Customer"/>
-            <index column="IDX"/>
-            <one-to-many class="dataAccess.model.LoanFile"/>
-        </list>
     </class>
 </hibernate-mapping>

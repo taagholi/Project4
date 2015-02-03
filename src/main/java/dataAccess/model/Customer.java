@@ -8,15 +8,7 @@ public class Customer {
     private String family;
     private String fatherName;
     private long codeMelli;
-    private List<LoanFile> loanFiles;
 
-    public List<LoanFile> getLoanFiles() {
-        return loanFiles;
-    }
-
-    public void setLoanFiles(List<LoanFile> loanFiles) {
-        this.loanFiles = loanFiles;
-    }
 
     public long getId() {
         return id;

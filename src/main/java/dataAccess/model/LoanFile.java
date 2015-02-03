@@ -6,6 +6,15 @@ public class LoanFile {
     private long durationContract;
     private long amountContract;
     private LoanType loanType;
+    private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public LoanType getLoanType() {
         return loanType;
