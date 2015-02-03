@@ -7,7 +7,7 @@ import java.util.List;
 public class CustomerLogic {
 
 
-    public Customer loadCustomerByID(long customerID){
+    public static Customer loadCustomerByID(long customerID){
         List<Customer> customers = CustomerCRUD.read(customerID);
         if(customers.size() == 0){
             return null;

@@ -9,7 +9,7 @@ public class LoanFileLogic {
 
 
 
-    public long decisionAllocate(String nameOfLoan, long duration, long amount, long customerID) {
+    public static long decisionAllocate(String nameOfLoan, long duration, long amount, long customerID) {
         long trackingNumber = -1;
         LoanType loanType = LoanTypeCRUD.getModel(nameOfLoan);
         List<GrandCondition> grandConditions = loanType.getGrandConditions();

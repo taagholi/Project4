@@ -14,9 +14,7 @@ import java.io.IOException;
 
 public class LoanFileServlet extends HttpServlet {
 
-    LoanTypeLogic loanTypeLogic = new LoanTypeLogic();
-    CustomerLogic customerLogic = new CustomerLogic();
-    LoanFileLogic loanFileLogic = new LoanFileLogic();
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getServletPath().equalsIgnoreCase("/StartNewLoanFile")){
@@ -28,7 +26,7 @@ public class LoanFileServlet extends HttpServlet {
 
         else if(request.getServletPath().equalsIgnoreCase("/RetrieveCustomer")){
             long CustomerNumber = Long.parseLong(request.getParameter("CustomerNumber"));
-            Customer customer = customerLogic.loadCustomerByID(CustomerNumber);
+            Customer customer = CustomerLogic.loadCustomerByID(CustomerNumber);
 
             if(customer == null){
                 request.setAttribute("Step", "StepGetCustomerNumber");
@@ -38,7 +36,7 @@ public class LoanFileServlet extends HttpServlet {
             }else{
                 request.setAttribute("Step", "StepChooseLoanType");
                 request.getSession().setAttribute("customer", customer);
-                request.setAttribute("NamesOfLoanType", loanTypeLogic.loadNameOfLoanType());
+                request.setAttribute("NamesOfLoanType", LoanTypeLogic.loadNameOfLoanType());
                 RequestDispatcher requestDispatcher=request.getRequestDispatcher("LoanFile/Step1_CustomerNumber_ChooseLoan.jsp");
                 requestDispatcher.forward(request, response);
             }
@@ -47,7 +45,7 @@ public class LoanFileServlet extends HttpServlet {
         else if(request.getServletPath().equalsIgnoreCase("/DecisionAllocateLoan")){
             request.setCharacterEncoding("UTF-8");
             long customerID = ((Customer) request.getSession().getAttribute("customer")).getId();
-            long trackingNumber = loanFileLogic.decisionAllocate(request.getParameter("loanchosen"), Long.parseLong(request.getParameter("DurationOfUser")),
+            long trackingNumber = LoanFileLogic.decisionAllocate(request.getParameter("loanchosen"), Long.parseLong(request.getParameter("DurationOfUser")),
                     Long.parseLong(request.getParameter("AmountOfUser")) , customerID);
             request.getSession().setAttribute("trackingNumber", trackingNumber);
             response.sendRedirect("LoanFile/StepFinal_ShowResult.jsp");

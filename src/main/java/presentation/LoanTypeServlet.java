@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoanTypeServlet extends HttpServlet {
-    private LoanTypeLogic loanTypeLogic = new LoanTypeLogic();
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getServletPath().equalsIgnoreCase("/newLoanType")){
@@ -64,7 +63,7 @@ public class LoanTypeServlet extends HttpServlet {
         }
 
         else if(request.getServletPath().equalsIgnoreCase("/RegisterLoanType")){
-            loanTypeLogic.registerLoanType(((LoanType) request.getSession().getAttribute("loantype")));
+            LoanTypeLogic.registerLoanType(((LoanType) request.getSession().getAttribute("loantype")));
             request.getSession().removeAttribute("loantype");
             request.getSession().setAttribute("resultOfSaveModel", "success");
             response.sendRedirect("/LoanType/Step3_ResultOfCreationLoanType.jsp");
